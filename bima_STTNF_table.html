@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jadwal Kuliah - Bima Wahyu Saputra</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f4f6f9;
+        margin: 20px;
+        color: #333;
+      }
+
+      .student-info {
+        background-color: #ffffff;
+        border: 1px solid #cccccc;
+        padding: 15px 20px;
+        margin-bottom: 25px;
+        border-radius: 6px;
+        max-width: 850px;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      }
+
+      .student-info h2 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        color: #2c3e50;
+        font-size: 18px;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 5px;
+        display: inline-block;
+      }
+
+      .student-info p {
+        margin: 5px 0;
+        font-size: 14px;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 850px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      th,
+      td {
+        border: 2px solid #7f8c8d;
+        padding: 10px 12px;
+        text-align: left;
+        font-size: 14px;
+      }
+
+      th {
+        background-color: #7f8c8d;
+        color: #ffffff;
+        text-align: center;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+      }
+
+      .day-cell {
+        text-align: center;
+        font-weight: bold;
+        vertical-align: middle;
+        background-color: #fcfcfc;
+      }
+
+      .time-cell {
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      .room-cell {
+        text-align: center;
+        vertical-align: middle;
+      }
+
+      .footer-cell {
+        background-color: #7f8c8d;
+        color: #ffffff;
+        text-align: center;
+        font-weight: bold;
+        letter-spacing: 1px;
+        padding: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Informasi Mahasiswa -->
+    <div class="student-info">
+      <h2>Informasi Mahasiswa</h2>
+      <p><strong>Nama:</strong> Bima Wahyu Saputra</p>
+      <p><strong>Kampus:</strong> STT Terpadu Nurul Fikri</p>
+    </div>
+
+    <!-- Tabel Jadwal Kuliah -->
+    <table>
+      <thead>
+        <tr>
+          <th>HARI</th>
+          <th>JAM</th>
+          <th>MATA KULIAH</th>
+          <th>DOSEN</th>
+          <th>RUANG</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- SENIN -->
+        <tr>
+          <td rowspan="2" class="day-cell">SENIN</td>
+          <td class="time-cell">08.00 - 10.00</td>
+          <td>Kajian Islam</td>
+          <td>Ust. Anwar Nashidin, Lc.</td>
+          <td class="room-cell">Ruang Teori</td>
+        </tr>
+        <tr>
+          <td class="time-cell">10.00 - 12.00</td>
+          <td>Aplikasi Perkantoran</td>
+          <td>Drs. MGS Hendri, M.M</td>
+          <td rowspan="5" class="room-cell">Ruang I</td>
+        </tr>
+
+        <!-- SELASA -->
+        <tr>
+          <td rowspan="2" class="day-cell">SELASA</td>
+          <td class="time-cell">08.00 - 10.00</td>
+          <td>Linux Fundamental</td>
+          <td>Henry Saptono, S.Si, M.kom</td>
+        </tr>
+        <tr>
+          <td class="time-cell">10.00 - 12.00</td>
+          <td>Html, Css & Javacsript</td>
+          <td rowspan="3" style="vertical-align: middle">
+            Sirojul Munir, S.Si, M.Kom
+          </td>
+        </tr>
+
+        <!-- RABU -->
+        <tr>
+          <td rowspan="2" class="day-cell">RABU</td>
+          <td class="time-cell">08.00 - 10.00</td>
+          <td>Basis Data</td>
+        </tr>
+        <tr>
+          <td class="time-cell">10.00 - 12.00</td>
+          <td>Algoritma dan Pemograman</td>
+        </tr>
+
+        <!-- KAMIS -->
+        <tr>
+          <td rowspan="2" class="day-cell">KAMIS</td>
+          <td class="time-cell">08.00 - 10.00</td>
+          <td>Kewirausahaan & Pengembangan Diri</td>
+          <td>Khoirul Umam, S.Pd</td>
+          <td rowspan="2" class="room-cell">Ruang Teori</td>
+        </tr>
+        <tr>
+          <td class="time-cell">10.00 - 12.00</td>
+          <td>Bahasa Inggris</td>
+          <td>Drs. Mahfudz</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="5" class="footer-cell">
+            JADWAL DAPAT BERUBAH SEWAKTU-WAKTU
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>
