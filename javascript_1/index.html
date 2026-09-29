@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 1 - Menghitung Luas Bangun Datar JavaScript</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            margin: 40px;
+        }
+        .container {
+            max-width: 650px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .card {
+            background: #f8f9fa;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .card h4 {
+            margin: 0 0 8px 0;
+            color: #2980b9;
+        }
+        .result {
+            font-weight: bold;
+            color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Tugas 1: Kalkulator Luas Bangun Datar</h2>
+        <p>Program menghitung luas Bujur Sangkar, Persegi Panjang, dan Segitiga menggunakan JavaScript dasar.</p>
+        
+        <!-- Wadah untuk menampilkan hasil di halaman web -->
+        <div id="hasil-perhitungan"></div>
+    </div>
+
+    <script>
+        /**
+         * 1. Fungsi untuk menghitung luas Bujur Sangkar
+         * Rumus: sisi * sisi
+         * @param {number} sisi - Panjang sisi bujur sangkar
+         * @returns {number} Nilai luas bujur sangkar
+         */
+        function hitungLuasBujurSangkar(sisi) {
+            return sisi * sisi;
+        }
+
+        /**
+         * 2. Fungsi untuk menghitung luas Persegi Panjang
+         * Rumus: panjang * lebar
+         * @param {number} panjang - Panjang persegi panjang
+         * @param {number} lebar - Lebar persegi panjang
+         * @returns {number} Nilai luas persegi panjang
+         */
+        function hitungLuasPersegiPanjang(panjang, lebar) {
+            return panjang * lebar;
+        }
+
+        /**
+         * 3. Fungsi untuk menghitung luas Segitiga
+         * Rumus: 0.5 * alas * tinggi
+         * @param {number} alas - Panjang alas segitiga
+         * @param {number} tinggi - Tinggi segitiga
+         * @returns {number} Nilai luas segitiga
+         */
+        function hitungLuasSegitiga(alas, tinggi) {
+            return 0.5 * alas * tinggi;
+        }
+
+        // --- Deklarasi Variabel dengan Nilai Bebas ---
+        let sisiBujurSangkar = 6;              // dalam sentimeter (cm)
+        let panjangPersegi = 12;               // dalam sentimeter (cm)
+        let lebarPersegi = 5;                  // dalam sentimeter (cm)
+        let alasSegitiga = 8;                  // dalam sentimeter (cm)
+        let tinggiSegitiga = 10;               // dalam sentimeter (cm)
+
+        // --- Memproses Perhitungan Menggunakan Fungsi & Operator ---
+        let luasBujurSangkar = hitungLuasBujurSangkar(sisiBujurSangkar);
+        let luasPersegiPanjang = hitungLuasPersegiPanjang(panjangPersegi, lebarPersegi);
+        let luasSegitiga = hitungLuasSegitiga(alasSegitiga, tinggiSegitiga);
+
+        // Menampilkan hasil melalui console browser (untuk keperluan pengecekan/debugging)
+        console.log("Luas Bujur Sangkar: " + luasBujurSangkar);
+        console.log("Luas Persegi Panjang: " + luasPersegiPanjang);
+        console.log("Luas Segitiga: " + luasSegitiga);
+
+        // --- Menampilkan Hasil ke Halaman HTML ---
+        let kontenHTML = `
+            <div class="card">
+                <h4>1. Bujur Sangkar</h4>
+                <p>Panjang Sisi: ${sisiBujurSangkar} cm</p>
+                <p>Rumus: sisi × sisi</p>
+                <p>Hasil Luas: <span class="result">${luasBujurSangkar} cm²</span></p>
+            </div>
+
+            <div class="card">
+                <h4>2. Persegi Panjang</h4>
+                <p>Panjang: ${panjangPersegi} cm | Lebar: ${lebarPersegi} cm</p>
+                <p>Rumus: panjang × lebar</p>
+                <p>Hasil Luas: <span class="result">${luasPersegiPanjang} cm²</span></p>
+            </div>
+
+            <div class="card">
+                <h4>3. Segitiga</h4>
+                <p>Alas: ${alasSegitiga} cm | Tinggi: ${tinggiSegitiga} cm</p>
+                <p>Rumus: 0.5 × alas × tinggi</p>
+                <p>Hasil Luas: <span class="result">${luasSegitiga} cm²</span></p>
+            </div>
+        `;
+
+        document.getElementById("hasil-perhitungan").innerHTML = kontenHTML;
+    </script>
+</body>
+</html>
