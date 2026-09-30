@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 2 - JavaScript (Data Pegawai)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f9f9f9;
+        }
+        h2 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+        tfoot td {
+            font-weight: bold;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Data Penggajian Pegawai</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nama Pegawai</th>
+                <th>Umur</th>
+                <th>Jabatan</th>
+                <th>Status</th>
+                <th>Gaji Pokok</th>
+                <th>Tunjangan Jabatan (15%)</th>
+                <th>BPJS (10%)</th>
+                <th>Tunjangan Keluarga</th>
+                <th>Total Gaji</th>
+            </tr>
+        </thead>
+        <tbody id="data-pegawai">
+            <!-- Data akan dimasukkan menggunakan JavaScript -->
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="8" style="text-align: right;">Total Keseluruhan Gaji:</td>
+                <td id="total-gaji-keseluruhan"></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <script>
+        // Data Pegawai yang diketahui
+        let pegawai = {
+            nama: "dodi prayodi",
+            umur: 25,
+            jabatan: "manajer",
+            status: "menikah"
+        };
+
+        // 1. Menentukan Gaji Pokok menggunakan IF
+        let gapok = 0;
+        if (pegawai.jabatan.toLowerCase() === "manajer") {
+            gapok = 15000000;
+        } else if (pegawai.jabatan.toLowerCase() === "asisten manajer") {
+            gapok = 10000000;
+        } else if (pegawai.jabatan.toLowerCase() === "staff") {
+            gapok = 5000000;
+        }
+
+        // 2. Perhitungan Tunjangan & Potongan
+        let tunjanganJabatan = 0.15 * gapok;
+        let bpjs = 0.10 * gapok;
+
+        // 3. Menentukan Tunjangan Keluarga menggunakan Ternary
+        let tunjanganKeluarga = (pegawai.status.toLowerCase() === "menikah") ? (0.20 * gapok) : 0;
+
+        // 4. Menghitung Total Gaji (Gaji Pokok + Tunjangan Jabatan + Tunjangan Keluarga - BPJS)
+        // Catatan: BPJS umumnya merupakan potongan, namun jika dihitung sebagai akumulasi elemen penerimaan atau total benefit, 
+        // silakan disesuaikan. Di sini BPJS dihitung sebagai bagian dari komponen kalkulasi.
+        let totalGaji = gapok + tunjanganJabatan + tunjanganKeluarga - bpjs;
+
+        // Fungsi helper untuk format mata uang Rupiah
+        function formatRupiah(angka) {
+            return "Rp " + angka.toLocaleString("id-ID");
+        }
+
+        // Memasukkan data ke dalam HTML (DOM)
+        let tbody = document.getElementById("data-pegawai");
+        let row = `<tr>
+            <td>${pegawai.nama.toUpperCase()}</td>
+            <td>${pegawai.umur} tahun</td>
+            <td style="text-transform: capitalize;">${pegawai.jabatan}</td>
+            <td style="text-transform: capitalize;">${pegawai.status}</td>
+            <td>${formatRupiah(gapok)}</td>
+            <td>${formatRupiah(tunjanganJabatan)}</td>
+            <td>${formatRupiah(bpjs)}</td>
+            <td>${formatRupiah(tunjanganKeluarga)}</td>
+            <td>${formatRupiah(totalGaji)}</td>
+        </tr>`;
+
+        tbody.innerHTML = row;
+
+        // Menampilkan Total Gaji pada tfoot
+        document.getElementById("total-gaji-keseluruhan").innerText = formatRupiah(totalGaji);
+    </script>
+
+</body>
+</html>
